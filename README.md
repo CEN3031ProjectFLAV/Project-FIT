@@ -7,9 +7,9 @@ Currently an unknown project. Awaiting for client to give us details.
 
 Name - Gatorlink ID
 
-Victor Matos- vmatos (mr.troll)
+Victor Matos- vmatos
 
-Alex Camejo -
+Peter Camescrub -
 
 Florencia Bonarto - fbonarto
 
