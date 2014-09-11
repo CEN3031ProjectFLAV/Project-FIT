@@ -1,11 +1,5 @@
-FLAVProject
+Project Fit
 ===========
-
-Project description:
---------------------
-Currently an unknown project. Awaiting for client to give us details.
-
-Name - Gatorlink ID
 
 Victor Matos- vmatos
 
@@ -16,6 +10,7 @@ Florencia Bonarto - fbonarto
 Qianwen Ding - luluding        
 
 Jacob Cukjati- jackstine
+
 ------------------------------------------------------------------------------
 Documentation
 the following URLs are linked to our Documentation in the Issues section of the GitHub Account
