@@ -11,6 +11,8 @@ Qianwen Ding - luluding
 
 Jacob Cukjati- jackstine
 
+Alicia Morrow - aliciamorrow
+
 ------------------------------------------------------------------------------
 Documentation
 the following URLs are linked to our Documentation in the Issues section of the GitHub Account
