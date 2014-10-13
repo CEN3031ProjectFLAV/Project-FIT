@@ -67,6 +67,18 @@ var UserSchema = new Schema({
 		type: Number,
 		default: 20
 	},
+	country:{
+		type:String,
+		default: ''
+	},
+	phone:{
+		type:String,
+		default:''
+	},
+	gender:{
+		type:String,
+		default:''
+	},
 	salt: {
 		type: String
 	},
