@@ -22,6 +22,11 @@ describe('User Model Unit Tests:', function() {
 			lastName: 'Name',
 			displayName: 'Full Name',
 			email: 'test@test.com',
+			weight: 20,
+			age: 100,
+			country: 'USA',
+			phone:'000-555-888',
+			gender:'male',
 			username: 'username',
 			password: 'password',
 			provider: 'local'
@@ -31,6 +36,11 @@ describe('User Model Unit Tests:', function() {
 			lastName: 'Name',
 			displayName: 'Full Name',
 			email: 'test@test.com',
+			weight: 20,
+			age: 100,
+			country: 'USA',
+			phone:'000-555-888',
+			gender:'male',
 			username: 'username',
 			password: 'password',
 			provider: 'local'
@@ -66,6 +76,40 @@ describe('User Model Unit Tests:', function() {
 				done();
 			});
 		});
+		it('should be able to save with first name', function(done) {
+			user.firstName = 'Jacob';
+			return user.save(function(err) {
+				should.not.exist(err);
+				done();
+			});
+		});
+		it('should not be able to save with nonreal email', function(done) {
+			user.firstName = 'Jacob';
+			user.email='jacobmailcom';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+		it('should not be able to save with real email', function(done) {
+			user.firstName = 'Jacob';
+			user.email='jacob@mail.com';
+			return user.save(function(err) {
+				should.not.exist(err);
+				done();
+			});
+		});
+		it('should give default weight', function(done) {
+			user.firstName = 'Jacob';
+			user.weight=undefined;
+			expect(user.weight).toBe(100);
+		});
+		it('should give default age', function(done) {
+			user.firstName = 'Jacob';
+			user.age=undefined;
+			expect(user.age).toBe(20);
+		});
+
 	});
 
 	after(function(done) {

@@ -25,6 +25,9 @@
 		
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>-->
+
+
+			<!-- TODO Set the signup and signin log in a separate template html to get rid of clutter-->
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
@@ -42,7 +45,7 @@
 			</li>
 		</ul>
 		<!--End Test Code -->
-
+<!-- TODO Set the user abilities and login stuff in a separate template html to get rid of clutter-->
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
