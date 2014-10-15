@@ -99,16 +99,7 @@ describe('User Model Unit Tests:', function() {
 				done();
 			});
 		});
-		it('should give default weight', function(done) {
-			user.firstName = 'Jacob';
-			user.weight=undefined;
-			expect(user.weight).toBe(100);
-		});
-		it('should give default age', function(done) {
-			user.firstName = 'Jacob';
-			user.age=undefined;
-			expect(user.age).toBe(20);
-		});
+
 
 	});
 
