@@ -21,6 +21,8 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+			this.post='';
+			this.find();
 		};
 
 		// Remove existing Post
