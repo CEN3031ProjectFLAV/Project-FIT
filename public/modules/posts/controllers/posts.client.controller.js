@@ -9,15 +9,15 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		this.create = function() {
 			// Create new Post object
 			var post = new Posts ({
-				name: this.name
+				post: this.post
 			});
 
 			// Redirect after save
 			post.$save(function(response) {
-				$location.path('posts/' + response._id);
+				//$location.path('posts/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+				$scope.post = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

@@ -68,7 +68,7 @@
 		                <div class="form-group">
 		                    <label class="control-label" for="name">Post Status!/label>
 		                    <div class="controls">
-		                        <input type="text" data-ng-model="posts.name" id="name" class="form-control" placeholder="Name" required>
+		                        <input type="text" data-ng-model="posts.post" id="post" class="form-control" placeholder="Post" required>
 		                    </div>
 		                </div>
 		                <div class="form-group">
@@ -84,6 +84,23 @@
 	</div>
   <br>
 
+	<div  class="page-header">
+        <h1>Posts</h1>
+    </div>
+    <div class="list-group" data-ng-controller="PostsController as listPosts" data-ng-init="listPosts.find()">
+        <a data-ng-repeat="post in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="post.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="post.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="post.post"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!posts.$resolved || posts.length">
+    	No Posts yet, why don't you <a href="/#!/posts/create">create one</a>?
+    </div>
 
 
   </div>

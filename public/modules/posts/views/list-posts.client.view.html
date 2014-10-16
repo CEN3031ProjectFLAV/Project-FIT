@@ -1,4 +1,4 @@
-<section data-ng-controller="PostsController" data-ng-init="find()">
+<section data-ng-controller="PostsController as listPosts" data-ng-init="listPosts.find()">
     <div class="page-header">
         <h1>Posts</h1>
     </div>
@@ -10,7 +10,7 @@
 				by
 				<span data-ng-bind="post.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="post.name"></h4>
+			<h4 class="list-group-item-heading" data-ng-bind="post.post"></h4>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!posts.$resolved || posts.length">
