@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Post Schema
  */
 var PostSchema = new Schema({
-	name: {
+	post: {
 		type: String,
 		default: '',
 		required: 'Please fill Post name',

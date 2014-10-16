@@ -24,7 +24,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		};
 
 		// Remove existing Post
-		$scope.remove = function( post ) {
+		this.remove = function( post ) {
 			if ( post ) { post.$remove();
 
 				for (var i in $scope.posts ) {
@@ -40,7 +40,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		};
 
 		// Update existing Post
-		$scope.update = function() {
+		this.update = function() {
 			var post = $scope.post ;
 
 			post.$update(function() {
@@ -51,12 +51,12 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		};
 
 		// Find a list of Posts
-		$scope.find = function() {
+		this.find = function() {
 			$scope.posts = Posts.query();
 		};
 
 		// Find existing Post
-		$scope.findOne = function() {
+		this.findOne = function() {
 			$scope.post = Posts.get({ 
 				postId: $stateParams.postId
 			});
