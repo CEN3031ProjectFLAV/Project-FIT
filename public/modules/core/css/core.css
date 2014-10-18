@@ -1,0 +1,70 @@
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty{
+    border-color:#FA787E;
+}
+.ng-valid.ng-dirty{
+    border-color:#78FA89;
+}
+.frontHeader {
+    background-color:lightgreen;
+    color:white;
+    text-align:center;
+    float:center;
+    padding:15px;
+    height:100px;
+    width:1110px;
+    margin:20px;
+}
+.frontLogin {
+    margin:10px;
+    line-height:20px;
+    background-color:lime;
+    height:600px;
+    width:320px;
+    float:right;
+    padding:20px;
+    text-align:justify; 
+}
+.frontNav {
+    margin:20px;
+    line-height:1px;
+    background-color:#eeeeee;
+    height:25px;
+    width:1000px;
+    float:left;
+    padding:15px;	      
+}
+.frontTitle {
+    margin:20px;
+    background-color:black;
+    color:white;
+    width:750px;
+    height:40px;
+    float:center;
+    padding:10px;	
+    text-align:center; 	 
+}
+.frontSection {
+    margin:20px;
+    background-color:lightgreen;
+    width:750px;
+    height:300px;
+    float:center;
+    padding:10px;	
+    text-align:justify; 	 
+}
+.frontFooter {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
