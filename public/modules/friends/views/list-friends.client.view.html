@@ -3,7 +3,9 @@
         <h1>Friends</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="friend in friends" data-ng-href="#!/friends/{{friend._id}}" class="list-group-item">
+        <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
+        <label>Search</label>
+        <a data-ng-repeat="friend in friends | filter:searchKeyword" data-ng-href="#!/friends/{{friend._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="friend.created | date:'medium'"></span>
