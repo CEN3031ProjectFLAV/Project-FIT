@@ -1,0 +1,22 @@
+<section data-ng-controller="FriendsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="friend.name"></h1>
+		<h2 data-ng-bind="friend.gender"></h2>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == friend.user._id">
+		<a class="btn btn-primary" href="/#!/friends/{{friend._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="friend.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="friend.user.displayName"></span>
+		</em>
+	</small>
+</section>
