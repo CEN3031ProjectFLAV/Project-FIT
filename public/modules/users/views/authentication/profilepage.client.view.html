@@ -8,6 +8,12 @@
 
 	<h1><span data-ng-bind = "authentication.user.displayName"></span>
 	</h1>
+
+	<div data-ng-controller="FriendsController" data-ng-init="find()">
+		<label>Search</label>
+    	<input type="text" ng-model="searchKeyword" typeahead="friend as friend.name for friend in friends | filter: searchKeyword" class="form-control" placeholder="search for friend..">
+	</div>
+
 	<div ui-route="/setgoals" ng-class="{active: $uiRoute}">
 		<a href="/#!/setgoals">Set Goals</a>
 	</div>
