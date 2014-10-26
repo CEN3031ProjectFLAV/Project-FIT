@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors'),
 	Friend = mongoose.model('Friend'),
+	User = mongoose.model('User'),
 	_ = require('lodash');
 
 /**
@@ -72,7 +73,7 @@ exports.delete = function(req, res) {
 /**
  * List of Friends
  */
-exports.list = function(req, res) { Friend.find().sort('-created').populate('user', 'displayName').exec(function(err, friends) {
+exports.list = function(req, res) { User.find().populate('user', 'displayName').exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

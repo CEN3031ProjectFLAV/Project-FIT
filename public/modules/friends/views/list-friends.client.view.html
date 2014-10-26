@@ -2,15 +2,16 @@
     <div class="page-header">
         <h1>Friends</h1>
     </div>
+    <p>{{friends}}</p>
     <div class="list-group">
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
         <label>Search</label>
-        <a data-ng-repeat="friend in friends | filter:searchKeyword" data-ng-href="#!/friends/{{friend._id}}" class="list-group-item">
+        <a data-ng-repeat="friend in friends | filter:searchKeyword"  class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="friend.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="friend.user.displayName"></span>
+				<span data-ng-bind="friend.firstName"></span>
+                {{friend.lastName}}
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="friend.name"></h4>
         </a>
@@ -18,4 +19,32 @@
     <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
     	No Friends yet, why don't you <a href="/#!/friends/create">create one</a>?
     </div>
+
+
+<section data-ng-controller="ListingsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Friends</h1>
+    </div>
+    {{tom}}
+    <p>{{users}}</p>
+    <div class="list-group">
+        <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
+        <label>Search</label>
+        <a data-ng-repeat="user in u | filter:searchKeyword" data-ng-href="#!/users/listings" class="list-group-item">
+            <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="user.firstName"></span>
+        
+                <span data-ng-bind="user.lastName"></span>
+            </small>
+        </a>
+    </div>
 </section>
+
+
+
+
+
+
+
+</section>  
