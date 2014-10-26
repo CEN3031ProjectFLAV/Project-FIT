@@ -6,22 +6,24 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors'),
 	Searchuser = mongoose.model('Searchuser'),
+	User = mongoose.model('User'),
+	Friend = mongoose.model('Friend'),
 	_ = require('lodash');
 
 /**
  * Create a Searchuser
  */
 exports.create = function(req, res) {
-	var searchuser = new Searchuser(req.body);
-	searchuser.user = req.user;
+	var friend = new Friend(req.body);
+	friend.user = req.user;
 
-	searchuser.save(function(err) {
+	friend.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(searchuser);
+			res.jsonp(friend);
 		}
 	});
 };
@@ -72,13 +74,13 @@ exports.delete = function(req, res) {
 /**
  * List of Searchusers
  */
-exports.list = function(req, res) { Searchuser.find().sort('-created').populate('user', 'displayName').exec(function(err, searchusers) {
+exports.list = function(req, res) { User.find().exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(searchusers);
+			res.jsonp(users);
 		}
 	});
 };

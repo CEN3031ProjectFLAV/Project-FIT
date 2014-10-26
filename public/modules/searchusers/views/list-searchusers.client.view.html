@@ -1,19 +1,46 @@
+<!--
+        Need to be able to route the friend controller from the user controllers
+        because instead of displaying friends we are displaying all the users here
+        All the Friend and user implementation will be in the friend controller
+
+        Need to take this template into the right routing     I dont know how to do that
+
+        for the schema of the users look at the schema info in the directory
+
+        app/models/user.server.model.js
+
+        Jacob Cukjati
+-->
+
+
 <section data-ng-controller="SearchusersController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Searchusers</h1>
+        <h1>Users</h1>
     </div>
+    current user selected to be a friend
+    {{friend}}
     <div class="list-group">
-        <a data-ng-repeat="searchuser in searchusers" data-ng-href="#!/searchusers/{{searchuser._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="searchuser.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="searchuser.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="searchuser.name"></h4>
+        <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
+        <label>Search</label>
+        <a data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item">
+            {{user}}
+            <small data-ng-init="incrementIndex()" class="list-group-item-text">
+                User Created On
+                <span data-ng-bind="user.created | date:'medium'"></span>
+                <span data-ng-bind="user.firstName"></span>
+                {{user.lastName}}
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="user.name"></h4>
+<!--
+            TODO the create user function here needs to be under the controler of friends cause we are
+            creating a friend and not a user
+-->
+
+
+            <button class="btn btn-success btn-lg" ng-click="create(user)" ng-disabled="">Add User to Friend List</button>
         </a>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!searchusers.$resolved || searchusers.length">
-    	No Searchusers yet, why don't you <a href="/#!/searchusers/create">create one</a>?
+    <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
+        No Friends yet, why don't you <a href="/#!/friends/create">create one</a>?
     </div>
-</section>
+</section>  

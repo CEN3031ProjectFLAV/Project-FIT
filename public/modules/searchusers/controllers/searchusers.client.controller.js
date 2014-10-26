@@ -6,14 +6,18 @@ angular.module('searchusers').controller('SearchusersController', ['$scope', '$s
 		$scope.authentication = Authentication;
 
 		// Create new Searchuser
-		$scope.create = function() {
+		$scope.create = function(user) {
 			// Create new Searchuser object
-			var searchuser = new Searchusers ({
-				name: this.name
+			$scope.friend = new Searchusers ({
+				user_id: user._id
+			});
+
+			var friendToSend= new Searchusers ({
+				user_id: user._id
 			});
 
 			// Redirect after save
-			searchuser.$save(function(response) {
+			friendToSend.$save(function(response) {
 				$location.path('searchusers/' + response._id);
 
 				// Clear form fields
@@ -52,7 +56,7 @@ angular.module('searchusers').controller('SearchusersController', ['$scope', '$s
 
 		// Find a list of Searchusers
 		$scope.find = function() {
-			$scope.searchusers = Searchusers.query();
+			$scope.users = Searchusers.query();
 		};
 
 		// Find existing Searchuser
