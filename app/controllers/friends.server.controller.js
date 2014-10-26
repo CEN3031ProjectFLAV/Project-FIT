@@ -14,7 +14,6 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var friend = new Friend(req.body);
-	friend.user = req.user;
 
 	friend.save(function(err) {
 		if (err) {

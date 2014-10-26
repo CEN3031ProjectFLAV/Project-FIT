@@ -1,27 +1,40 @@
 'use strict';
 
+/*       
+		Need to be able to route the friend controller from the user controllers
+        because instead of displaying friends we are displaying all the users here
+        All the Friend and user implementation will be in the friend controller
+*/
+
+
+
 // Friends controller
 angular.module('friends').controller('FriendsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Friends',
 	function($scope, $stateParams, $location, Authentication, Friends ) {
 		$scope.authentication = Authentication;
 
 		// Create new Friend
-		$scope.create = function() {
+		$scope.create = function(user) {
 			// Create new Friend object
-			var friend = new Friends ({
-				name: this.name
+			$scope.friend = new Friends ({
+				user_id: user._id
 			});
 
-			// Redirect after save
-			friend.$save(function(response) {
+			// get the list of friends here
+			var friends=Friends.query();
+			//make sure that no user can have two friends
+
+
+	/*		friend.$save(function(response) {
 				$location.path('friends/' + response._id);
 
 				// Clear form fields
 				$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
-			});
+			});*/
 		};
+
 
 		// Remove existing Friend
 		$scope.remove = function( friend ) {
@@ -52,7 +65,9 @@ angular.module('friends').controller('FriendsController', ['$scope', '$statePara
 
 		// Find a list of Friends
 		$scope.find = function() {
-			$scope.friends = Friends.query();
+
+			//Friends is querying the users
+			$scope.users = Friends.query();
 		};
 
 		// Find existing Friend

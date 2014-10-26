@@ -10,19 +10,14 @@ var mongoose = require('mongoose'),
  * Friend Schema
  */
 var FriendSchema = new Schema({
-	name: {
+	user_id: {
 		type: String,
-		default: '',
-		required: 'Please fill Friend name',
+		required: 'must be a actual user',
 		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
-	},
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
 	}
 });
 
