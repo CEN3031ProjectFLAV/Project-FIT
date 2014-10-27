@@ -1,4 +1,5 @@
 <div class = "container"  data-ng-controller="HeaderController">
+
 	<br>
 			<style>
 		h1{background-color:lime};
@@ -8,11 +9,12 @@
 
 	<h1><span data-ng-bind = "authentication.user.displayName"></span>
 	</h1>
-
+<!--
 	<div data-ng-controller="FriendsController" data-ng-init="find()">
 		<label>Search</label>
     	<input type="text" ng-model="searchKeyword" typeahead="friend as friend.name for friend in friends | filter: searchKeyword" class="form-control" placeholder="search for friend..">
 	</div>
+	<-->
 
 	<div ui-route="/setgoals" ng-class="{active: $uiRoute}">
 		<a href="/#!/setgoals">Set Goals</a>
@@ -29,9 +31,27 @@
 
 				}
 			</style>
+			<div class="row" data-ng-controller="SettingsController">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallSuspendisse varius, sem ac pharetra gravida, nisi risus tincidunt elit, eget vehicula elit orci efficitur dolor. Morbi sed massa magna. Suspendisse tincidunt leo odio, non fermentum leo sagittis quis. Aenean venenatis vitae mauris vitae tincidunt. Morbi at ligula dui. Pellentesque efficitur tincidunt lacus, a commofelis sollicitudin a. Integer id magna pretium, imperdiet magna et, gravida velit. Nulla nec diam cursus, tincidunt est ut, volutpat mauris. Duis dignissim interdum fermentum. Nunc sed odio erat. Fusce a dui non mauris interdum commodo.is libero id ex consequat, at tempus ipsum eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tempor metus sed aliquam graviday. Fusce a dui non mauris interdum commodo.is libero id ex consequat, at tempus
+			   Height: Not specified
+
+			   <br> 
+			   Weight: <span data-ng-bind = "user.weight"></span>
+			   <br>
+			   Age: <span data-ng-bind = "user.age"></span>
+			   <br>
+			   Activity Level: Not specified
+			   <br>
+			   Fitness Goal: Not specified
+			   <br>
+			   Description: Not Specified
+			   <br>
+			   <br>
+			   <br>
+			   <br>
+			   <br>
 			</p>
+			</div>
 		</div>
 	</div>
 	<br>
