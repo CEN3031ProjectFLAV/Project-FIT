@@ -57,7 +57,7 @@ angular.module('searchusers').controller('SearchusersController', ['$scope', '$s
 
 		// Find a list of Searchusers
 		$scope.find = function() {
-			$scope.users = Searchusers.query();
+			$scope.users = Searchusers.query($scope.authentication.user);
 		};
 
 		// Find existing Searchuser

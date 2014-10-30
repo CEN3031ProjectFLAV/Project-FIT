@@ -74,7 +74,7 @@ exports.delete = function(req, res) {
 /**
  * List of Searchusers
  */
-exports.list = function(req, res) { User.find().exec(function(err, users) {
+exports.list = function(req, res) { User.find().where('_id').ne(req.user._id).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
