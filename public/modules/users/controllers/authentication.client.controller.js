@@ -12,6 +12,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		 	'if' statement will automatically redirect the now-saved user to the homepage.
 		*/
 
+		
 		//if ($scope.authentication.user) $location.path('/');
 
 		$scope.signup = function() {
@@ -37,11 +38,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
-	
-
-
-	
-
+		
 }
 
 
