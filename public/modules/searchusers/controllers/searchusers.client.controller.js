@@ -18,6 +18,7 @@ angular.module('searchusers').controller('SearchusersController', ['$scope', '$s
 
 			// Redirect after save
 			friendToSend.$save(function(response) {
+				//TODO add the correct redirect page that gives us this users profile maybe???
 				$location.path('searchusers/' + response._id);
 
 				// Clear form fields

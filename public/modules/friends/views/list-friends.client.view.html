@@ -15,9 +15,7 @@
 
 <section data-ng-controller="FriendsController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Users</h1>
-    </div>
-    current friend
+        <h1>Your Friends</h1>
     {{friend}}
     <div class="list-group">
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
@@ -31,7 +29,6 @@
                 {{user.lastName}}
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="user.name"></h4>
-            <button class="btn btn-success btn-lg" ng-click="create(user)" ng-disabled="">Add User to Friend List</button>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
