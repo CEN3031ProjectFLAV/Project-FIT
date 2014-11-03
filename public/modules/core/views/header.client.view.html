@@ -30,21 +30,28 @@
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
 				<a href="/#!/signup">Sign Up</a>
 			</li>
-			<li class="form-group" style="padding-top: 6px; padding-right: 5px">
-				<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
-			</li>
-			<li class="form-group" style="padding-top: 6px; padding-right: 5px; margin-bottom: 0px">
-				<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
-				<div class="forgot-password">
-					<a href="/#!/password/forgot" style="float: right; font-size: 11px; padding-top: 2px; padding-bottom: 2px">Forgot your password?</a>
+			<li data-ng-controller="AuthenticationController">
+			<form data-ng-submit="signin()" class="signin" autocomplete="off">
+			<div class ="row">
+				<div class="col-xs-5" style="padding-top: 8px; padding-right: 0px">
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
 				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
+				<div class="col-xs-5" style="padding-top: 8px; padding-left: 2px; padding-right: 0px">
+					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+					<div class="forgot-password">
+						<a href="/#!/password/forgot" style="float: right; font-size: 11px; padding-top: 2px; padding-bottom: 2px">Forgot your password?</a>
+					</div>
 				</div>
-			</li>
-			<li class="text-center form-group" style="padding-top: 6px">
-				<button type="submit" class="btn btn-success">Sign in</button>
-			</li>
+				<div class="col-xs-2" style="padding-top: 8px; padding-left: 5px">
+					<button type="submit" class="btn btn-success">Sign in</button>
+				</div>
+
+	</div>
+			</form>
+		</li>
 		</ul>
 		<!-- Test Code -->
 		<ul class = "nav navbar-nav navbar-left" data-ng-show ="authentication.user" >
