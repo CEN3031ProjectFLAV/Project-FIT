@@ -11,7 +11,7 @@ describe('Post a status', function(){
 		//Issue loading the page when using browser.pause() 
 
 		//Fill out form and submit to create a random new account
-		var randomInt = Math.floor(Math.random() * 501) //generate a random number b\w 0 and 500
+		var randomInt = Math.floor(Math.random() * 10001) //generate a random number b\w 0 and 500
 		element(by.model('credentials.firstName')).sendKeys('testFirstName' + randomInt)
 		element(by.model('credentials.lastName')).sendKeys('testLastName' + randomInt)
 		element(by.model('credentials.email')).sendKeys('testEmail' + randomInt + '@gmail.com')
