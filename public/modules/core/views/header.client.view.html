@@ -28,7 +28,7 @@
 
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
+				<a class='register' href="/#!/signup">Sign Up</a>
 			</li>
 			<li data-ng-controller="AuthenticationController">
 			<form data-ng-submit="signin()" class="signin" autocomplete="off">
@@ -56,7 +56,7 @@
 		<!-- Test Code -->
 		<ul class = "nav navbar-nav navbar-left" data-ng-show ="authentication.user" >
 			<li ui-route="/profilepage" ng-class="{active: $uiRoute}">
-				<a href = "/#!/profilepage"> Profile </a>
+				<a class="profilepage" href = "/#!/profilepage"> Profile </a>
 			</li>
 		</ul>
 		<!--End Test Code -->
