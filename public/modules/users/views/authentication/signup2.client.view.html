@@ -1,8 +1,30 @@
 <section class="row" data-ng-controller="AuthenticationController">
+	<section class="row" data-ng-controller="SettingsController">
 		<div class = "text-center form-group" ui-route="/profilepage" ng-class="{active: $uiRoute}">
-			<p> Currently, the user is considered a user and can skip this page. User is considered a user after completing the last sign up page.</p>	
+				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+			<fieldset>
+				<br>
+				<h3>Completion</h3>
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+			    <span class="sr-only">60% Complete</span>
+			  </div>
+			</div>
+				<br>
+				<div class="form-group">
+					<label for="username">Weight</label>
+					<input type="text" id="weight" name="weight" class="form-control" data-ng-model="user.weight" placeholder="Weight">
+				</div>  <!-- TODO make this only a number WEIGHT and AGE -->
+				<div class="form-group">
+					<label for="username">Age</label>
+					<input type="text" id="age" name="age" class="form-control" data-ng-model="user.age" placeholder="age">
+				</div>
 			<a href="/#!/profilepage">
 				<button type="submit" class="btn btn-large btn-primary" >Profile Page</button>
 			</a>
-		</div>
+			</fieldset>
+		</form>
+	</section>
+	
 </section> 
