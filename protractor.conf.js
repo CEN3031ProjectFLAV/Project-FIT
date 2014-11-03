@@ -1,18 +1,15 @@
 exports.config = {
-	framework:'mocha',
 
 	specs: [
 		'test/e2e/post_a_status.spec.js'
 	],
 
-	mochaOpts:{
-		enableTimeouts:false
+	jasmineNodeOpts: {
+	  showColors: true,
+	  defaultTimeoutInterval: 30000
 	},
-
 
 	onPrepare: function(){
 		require('./server')
 	}
-
-
 }

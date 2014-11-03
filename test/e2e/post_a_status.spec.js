@@ -1,6 +1,4 @@
-var expect = require('chai').expect
-
-describe('Post a status', function(){
+describe('Post status', function(){
 	it('Create an account and post a status', function(){
 		
 		//Go to homepage
@@ -28,12 +26,7 @@ describe('Post a status', function(){
 		element(by.model('listposts.post')).sendKeys(status)
 		element(by.css('form .postStatusBtn')).click()
 		var statusList = element.all(by.repeater('post in posts'))
-		statusList.first().getText().then(function(text){
-			expect(text).to.contain(status)
-		})
-
+		expect(statusList.first().getText()).toContain(status)
 
 	})
-
-
 })
