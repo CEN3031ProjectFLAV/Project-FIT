@@ -1,7 +1,10 @@
 <section data-ng-controller="SearchusersController" data-ng-init="findOne()">
+
 	<div class="page-header">
 		<h1 data-ng-bind="searchuser.name"></h1>
+		<h1> Friend's Name </h1>
 	</div>
+	<br>
 	<div class="pull-right" data-ng-show="authentication.user._id == searchuser.user._id">
 		<a class="btn btn-primary" href="/#!/searchusers/{{searchuser._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
@@ -10,8 +13,71 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
+	<div class ="row" >
+		<div class= "col-xs-2">
+			<img src="modules/searchusers/views/avatar.jpg" alt="Profile Picture">
+		</div>
+		<div class="well col-xs-7 col-xs-offset-1" data-ng-controller="SettingsController">
+			<p><b>Height:</b> Not specified</p>
+			<p><b>Weight:</b> <span data-ng-bind = "friendUser.weight"></p>
+			<p><b>Age:</b> <span data-ng-bind = "friendUser.age"></p>
+			<p><b>Activity Level:</b> Not specified</p>
+			<p><b>Fitness Goal:</b> Not specified</p>
+			<p><b>Description:</b> Not Specified</p>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-xs-3">
+			<h4>
+		 	<a href="/#!/friends">See more friends</a>
+			</h4>
+			<div class = "row-xs-offset-1">
+				<a href="url">
+				<img src="modules/users/img/Default_profile.gif" alt="Profile Picture" width="100" style ="border:2px solid black" height="100" align="left">
+				<a href="url">
+				<img src="modules/users/img/Default_profile.gif" alt="Profile Picture" width="100" style ="border:2px solid black" height="100" align="left">
+			</div>
+			<div class = "row-xs-offset-1">
+			<a href="url">
+				<img src="modules/users/img/Default_profile.gif" alt="Profile Picture" width="100" style ="border:2px solid black" height="100" align="left">
+				<a href="url">
+				<img src="modules/users/img/Default_profile.gif" alt="Profile Picture" width="100" style ="border:2px solid black" height="100" align="middle">
+				</a>
+			</div>
+			<p>
+			<br>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallSuspendisse varius, sem ac pharetra gravida, nisi risus tincidunt elit, eget vehicula elit orci efficitur dolor. Morbi sed massa magna. Suspendisse tincidunt leo odio, non fermentum leo sagittis quis. Aenean venenatis vitae mauris vitae tincidunt. Morbi at ligula dui. Pellentesque efficitur tincidunt lacus, a commofelis sollicitudin a. Integer id magna pretium, imperdiet magna et, gravida velit. Nulla nec diam
+			</p>
+		</div>
+
+<div class = "col-xs-7" style="padding-left: 10px" data-ng-controller="PostsController as listposts">
+			<div class="input-group">
+				<form class="form-horizontal" data-ng-submit="listposts.create()" novalidate>
+			  	<div class="form-group">
+			    	<label class="control-label" for="name"> <h2><b>Status Wall</b></h2></label>
+			    </div>
+					<div data-ng-show="error" class="text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+			  </form>
+			 </div>
+<div class="list-group" data-ng-init="friendlistposts.find()">
+		    <a data-ng-repeat="post in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item">
+				<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="post.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="post.user.displayName"></span>
+				</small>
+				<h4 class="list-group-item-heading" data-ng-bind="post.post"></h4>
+		    </a>
+		  </div>
+		  <div class="alert alert-warning text-center" data-ng-hide="!posts.$resolved || posts.length">
+		  	No Posts yet, why don't you <a href="/#!/posts/create">create one</a>?
+		  </div>	
 	<small>
 		<em class="text-muted">
+			(Any and all of friend's posts)
 			Posted on
 			<span data-ng-bind="searchuser.created | date:'mediumDate'"></span>
 			by
