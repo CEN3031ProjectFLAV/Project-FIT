@@ -29,7 +29,7 @@ describe('Friend Model Unit Tests:', function() {
 
 		user.save(function() { 
 			friend = new Friend({
-				name: 'Friend Name',
+				user_id: 'Friend Name',
 				user: user
 			});
 
@@ -37,7 +37,7 @@ describe('Friend Model Unit Tests:', function() {
 		});
 	});
 
-	/*
+	
 	describe('Method Save', function() {
 		
 		it('should be able to save without problems', function(done) {
@@ -48,14 +48,14 @@ describe('Friend Model Unit Tests:', function() {
 		}); 
 
 		it('should be able to show an error when try to save without name', function(done) { 
-			friend.name = '';
+			friend.user_id = '';
 
 			return friend.save(function(err) {
 				should.exist(err);
 				done();
 			});
 		});
-	});*/
+	});
 
 	afterEach(function(done) { 
 		Friend.remove().exec();
