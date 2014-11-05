@@ -29,7 +29,7 @@ describe('Post Model Unit Tests:', function() {
 
 		user.save(function() { 
 			post = new Post({
-				name: 'Post Name',
+				post: 'Post Name',
 				user: user
 			});
 
@@ -46,7 +46,7 @@ describe('Post Model Unit Tests:', function() {
 		});
 
 		it('should be able to show an error when try to save without name', function(done) { 
-			post.name = '';
+			post.post = '';
 
 			return post.save(function(err) {
 				should.exist(err);
