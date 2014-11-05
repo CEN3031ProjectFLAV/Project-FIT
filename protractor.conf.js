@@ -1,12 +1,13 @@
 exports.config = {
 
 	specs: [
-		'test/e2e/post_a_status.spec.js'
+		'test/e2e/*.spec.js'
 	],
 
 	jasmineNodeOpts: {
 	  showColors: true,
-	  defaultTimeoutInterval: 30000
+	  //defaultTimeoutInterval: 30000
+	  enableTimeouts:false
 	},
 
 	onPrepare: function(){

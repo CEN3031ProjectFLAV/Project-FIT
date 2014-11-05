@@ -1,12 +1,14 @@
+var mongoose = require('mongoose');
+var db = mongoose.createConnection('mongodb://localhost/projectfit-test');
+
 describe('Post status', function(){
-	it('Create an account and post a status', function(){
+	it('Should be able to post a status', function(){
 		
 		//Go to homepage
 		browser.get('http://localhost:3001')
 
 		//Click 'Sign up' on the nav bar
 		element(by.css('nav .register')).click()
-		//Issue loading the page when using browser.pause() 
 
 		//Fill out form and submit to create a random new account
 		var randomInt = Math.floor(Math.random() * 10001) //generate a random number b\w 0 and 500
@@ -28,5 +30,10 @@ describe('Post status', function(){
 		var statusList = element.all(by.repeater('post in posts'))
 		expect(statusList.first().getText()).toContain(status)
 
+	})
+
+	afterEach(function(){
+		//Clear database
+		db.db.dropDatabase()
 	})
 })
