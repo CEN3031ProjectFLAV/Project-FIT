@@ -26,7 +26,11 @@
 				User Created On
 				<span data-ng-bind="user.created | date:'medium'"></span>
 				<span data-ng-bind="user.firstName"></span>
-                {{user.lastName}}
+            <!--
+                To display the information in the user you need to use user.user_id.[info of user]
+                Like so
+            -->
+                {{user.user_id.lastName}}
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="user.name"></h4>
         </a>
