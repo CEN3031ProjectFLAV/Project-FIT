@@ -72,15 +72,33 @@ exports.delete = function(req, res) {
 /**
  * List of Friends
  */
-exports.list = function(req, res) { Friend.find().populate('user', 'displayName').exec(function(err, friends) {
+exports.list = function(req, res) { 
+	var friendsList=[];
+	Friend.find().populate('firstName','lastName').exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
-		} else {
-			res.jsonp(friends);
+		}  else{
+				//get all the friends that are not actual friends
+				//out of the list  and get thier user ids
+				for (var i=0;i<friends.length; i=i+1){
+					if (friends[i].user_id !== undefined)
+						friendsList.push(friends[i].user_id);
+				}
+				//fetch all the users that correspond to the user id in the friends list
+				User.find().where('_id').in(friendsList).exec(function(err, users) {
+					if (err) {
+						return res.status(400).send({
+							message: errorHandler.getErrorMessage(err)
+						});
+					} else {
+						res.jsonp(users); //send users to the Controllers
+					}
+				});    
 		}
 	});
+
 };
 
 /**
