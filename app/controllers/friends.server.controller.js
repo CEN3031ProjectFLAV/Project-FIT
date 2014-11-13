@@ -74,7 +74,7 @@ exports.delete = function(req, res) {
  */
 exports.list = function(req, res) { 
 	var friendsList=[];
-	Friend.find().populate('firstName','lastName').exec(function(err, friends) {
+	Friend.find().populate('user_id').exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -86,8 +86,9 @@ exports.list = function(req, res) {
 					if (friends[i].user_id !== undefined)
 						friendsList.push(friends[i].user_id);
 				}
+				res.jsonp(friends);
 				//fetch all the users that correspond to the user id in the friends list
-				User.find().where('_id').in(friendsList).exec(function(err, users) {
+	/*			User.find().where('_id').in(friendsList).exec(function(err, users) {
 					if (err) {
 						return res.status(400).send({
 							message: errorHandler.getErrorMessage(err)
@@ -95,7 +96,7 @@ exports.list = function(req, res) {
 					} else {
 						res.jsonp(users); //send users to the Controllers
 					}
-				});    
+				});    */
 		}
 	});
 

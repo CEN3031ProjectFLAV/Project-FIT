@@ -11,9 +11,12 @@ var mongoose = require('mongoose'),
  */
 var FriendSchema = new Schema({
 	user_id: {
-		type: String,
-		required: 'must be a actual user',
-		trim: true
+		type: Number,
+		ref: 'User'
+	},
+		user: {
+		type: Schema.ObjectId,
+		ref: 'User'
 	},
 	created: {
 		type: Date,
