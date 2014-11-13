@@ -74,13 +74,35 @@ exports.delete = function(req, res) {
 /**
  * List of Searchusers
  */
-exports.list = function(req, res) { User.find().where('_id').ne(req.user._id).exec(function(err, users) {
+exports.list = function(req, res) {
+	// we dont want any of our friends to show up in the list so lets pull our friends'
+
+	//TODO figure out what the exec function does
+	var friendsList=[];
+	Friend.find().populate('user', 'displayName').exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(users);
+			//get all the friends that have a user id
+			for (var i=0;i<friends.length; i=i+1){
+				if (friends[i].user_id !== undefined)
+					friendsList.push(friends[i].user_id);
+			}
+			//add the user requesting to view all the friends
+			friendsList.push(req.user._id);
+			//once we have our friends we need to pull all the Users that are not our friends
+			User.find().where('_id').nin(friendsList).exec(function(err, users) {
+				if (err) {
+					return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+				} else {
+					res.jsonp(users);
+				}
+			});
+
 		}
 	});
 };
