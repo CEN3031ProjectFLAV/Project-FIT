@@ -74,7 +74,7 @@ exports.delete = function(req, res) {
  */
 exports.list = function(req, res) { 
 	var friendsList=[];
-	Friend.find().populate('user_id').exec(function(err, friends) {
+	Friend.find().where('user_id').equals(req.user._id).populate('friend_id').exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

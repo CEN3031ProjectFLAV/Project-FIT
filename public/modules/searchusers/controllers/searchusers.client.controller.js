@@ -9,11 +9,11 @@ angular.module('searchusers').controller('SearchusersController', ['$scope', '$s
 		$scope.create = function(user) {
 			// Create new Searchuser object
 			$scope.friend = new Searchusers ({
-				user_id: user._id
+				friend_id: user._id
 			});
 
 			var friendToSend= new Searchusers ({
-				user_id: user._id
+				friend_id: user._id
 			});
 
 			// Redirect after save

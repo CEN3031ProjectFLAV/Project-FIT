@@ -14,8 +14,12 @@ var mongoose = require('mongoose'),
  * Create a Searchuser
  */
 exports.create = function(req, res) {
-	var friend = new Friend(req.body);
-	friend.user = req.user;
+	console.log(req.body.friend_id);
+	var friend = new Friend();
+	console.log('hello');
+	friend.friend_id=req.body.friend_id;	//<---  set the friend id
+	console.log(friend.friend_id);
+	friend.user_id = req.user._id;			//<--- set the user that created the friend
 
 	friend.save(function(err) {
 		if (err) {
@@ -76,10 +80,9 @@ exports.delete = function(req, res) {
  */
 exports.list = function(req, res) {
 	// we dont want any of our friends to show up in the list so lets pull our friends'
-
-	//TODO figure out what the exec function does
 	var friendsList=[];
-	Friend.find().populate('user', 'displayName').exec(function(err, friends) {
+	//find all the friends of the user requesting the list
+	Friend.find().where('user_id').equals(req.user._id).exec(function(err, friends) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -87,10 +90,10 @@ exports.list = function(req, res) {
 		} else {
 			//get all the friends that have a user id
 			for (var i=0;i<friends.length; i=i+1){
-				if (friends[i].user_id !== undefined)
-					friendsList.push(friends[i].user_id);
+				if (friends[i].friend_id !== undefined)
+					friendsList.push(friends[i].friend_id);
 			}
-			//add the user requesting to view all the friends
+			//add the user requesting to view all the users  cause he cant select himself
 			friendsList.push(req.user._id);
 			//once we have our friends we need to pull all the Users that are not our friends
 			User.find().where('_id').nin(friendsList).exec(function(err, users) {

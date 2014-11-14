@@ -10,11 +10,13 @@ var mongoose = require('mongoose'),
  * Friend Schema
  */
 var FriendSchema = new Schema({
-	user_id: {
-		type: Number,
+	//points to the user that is the friend
+	friend_id: {
+		type: Schema.ObjectId,
 		ref: 'User'
 	},
-		user: {
+	//points to the user that created the friend
+		user_id: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
