@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var post = new Post(req.body);
-	post.user = req.user;
+	post.user = req.user;  // <--  this is the user that creates the post
 
 	post.save(function(err) {
 		if (err) {
@@ -72,7 +72,9 @@ exports.delete = function(req, res) {
 /**
  * List of Posts
  */
-exports.list = function(req, res) { Post.find().sort('-created').populate('user', 'displayName').exec(function(err, posts) {
+exports.list = function(req, res) { 
+	//the user can now only see his own posts
+	Post.find().sort('-created').where('user').equals(req.user._id).populate('user', 'displayName').exec(function(err, posts) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
