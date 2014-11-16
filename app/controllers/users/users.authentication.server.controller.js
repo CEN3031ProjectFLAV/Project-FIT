@@ -7,7 +7,9 @@ var _ = require('lodash'),
 	errorHandler = require('../errors'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	SearchUser = mongoose.model('Searchuser'),
+	Friend = mongoose.model('Friend');
 
 /**
  * Signup

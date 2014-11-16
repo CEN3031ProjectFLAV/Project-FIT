@@ -9,8 +9,8 @@
 
 
 // Friends controller
-angular.module('friends').controller('FriendsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Friends',
-	function($scope, $stateParams, $location, Authentication, Friends ) {
+angular.module('friends').controller('FriendsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Friends', 'Posts',
+	function($scope, $stateParams, $location, Authentication, Friends, Posts ) {
 		$scope.authentication = Authentication;
 
 		// Create new Friend

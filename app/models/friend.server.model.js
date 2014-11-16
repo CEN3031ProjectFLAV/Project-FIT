@@ -16,7 +16,7 @@ var FriendSchema = new Schema({
 		ref: 'User'
 	},
 	//points to the user that created the friend
-		user_id: {
+	user_id: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	},

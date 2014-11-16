@@ -102,10 +102,10 @@ exports.list = function(req, res) {
 
 };
 
-/**
+/**s
  * Friend middleware
  */
-exports.friendByID = function(req, res, next, id) { Friend.findById(id).populate('user', 'displayName').exec(function(err, friend) {
+exports.friendByID = function(req, res, next, id) { Friend.findById(id).populate('friend_id').exec(function(err, friend) {
 		if (err) return next(err);
 		if (! friend) return next(new Error('Failed to load Friend ' + id));
 		req.friend = friend ;

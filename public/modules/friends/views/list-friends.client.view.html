@@ -20,17 +20,18 @@
     <div class="list-group">
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
         <label>Search</label>
-        <a data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item">
+        <!-- Redirect to #!/friends/user.id. What is user.id for?-->
+        <a data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item" ng-href="#!/friends/{{user._id}}">
             {{user}}
 			<small data-ng-init="incrementIndex()" class="list-group-item-text">
 				User Created On
 				<span data-ng-bind="user.created | date:'medium'"></span>
 				<span data-ng-bind="user.firstName"></span>
             <!--
-                To display the information in the user you need to use user.user_id.[info of user]
+                To display the information in the user you need to use user.friend_id.[info of user]
                 Like so
             -->
-                {{user.user_id.lastName}}
+                {{user.friend_id.lastName}}
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="user.name"></h4>
         </a>

@@ -1,8 +1,7 @@
 <section data-ng-controller="SearchusersController" data-ng-init="findOne()">
 
 	<div class="page-header">
-		<h1 data-ng-bind="searchuser.name"></h1>
-		<h1> Friend's Name </h1>
+		<h1 data-ng-bind="user.name"></h1>
 	</div>
 	<br>
 	<div class="pull-right" data-ng-show="authentication.user._id == searchuser.user._id">
@@ -61,7 +60,7 @@
 					</div>
 			  </form>
 			 </div>
-<div class="list-group" data-ng-init="friendlistposts.find()">
+<div class="list-group" data-ng-init="findPosts()">
 		    <a data-ng-repeat="post in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item">
 				<small class="list-group-item-text">
 				Posted on
