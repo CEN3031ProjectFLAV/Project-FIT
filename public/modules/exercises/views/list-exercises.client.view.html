@@ -1,0 +1,19 @@
+<section data-ng-controller="ExercisesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Exercises</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="exercise in exercises" data-ng-href="#!/exercises/{{exercise._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="exercise.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="exercise.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="exercise.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!exercises.$resolved || exercises.length">
+    	No Exercises yet, why don't you <a href="/#!/exercises/create">create one</a>?
+    </div>
+</section>
