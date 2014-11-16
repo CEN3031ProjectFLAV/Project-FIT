@@ -63,6 +63,10 @@ var UserSchema = new Schema({
 		type:Number,
 		default: 100
 	},
+	height:{
+		type: Number,
+		default: 170
+	},
 	age:{
 		type: Number,
 		default: 20
