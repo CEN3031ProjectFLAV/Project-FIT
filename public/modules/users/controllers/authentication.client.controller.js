@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', 'Authentication',
-	function($scope, $http, $location, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location','$modal', '$log', 'Authentication',
+	function($scope, $http, $location, $modal, $log, Authentication) {
 		$scope.authentication = Authentication;
 
 		//If user is signed in then redirect back home
@@ -14,6 +14,32 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
 		
 		//if ($scope.authentication.user) $location.path('/');
+
+	  	this.modalCreate = function (size) {
+
+		    var modalInstance = $modal.open({
+		      	templateUrl: 'modules/users/views/userConfirmSchedule.client.view.html',
+		      	controller: function ($scope, $modalInstance) {
+
+						$scope.ok = function () {
+								$modalInstance.close();
+								$location.path('/workoutSchedule');
+						};
+
+						$scope.cancel = function () {
+							$modalInstance.dismiss('cancel');
+							$modalInstance.close();
+							$location.path('/profilepage');
+						};
+				},
+		    	size: size
+		    });
+
+		    modalInstance.result.then(function (selectedItem) {
+		    	}, function () {
+		     		$log.info('Modal dismissed at: ' + new Date());
+		    	});
+		  };
 
 		$scope.signup = function() {
 			$http.post('/auth/signup', $scope.credentials).success(function(response) {

@@ -33,6 +33,10 @@ angular.module('users').config(['$stateProvider',
 			url: '/signup2',
 			templateUrl: 'modules/users/views/authentication/signup2.client.view.html'
 		}).
+		state('workoutSchedule', {
+			url: '/workoutSchedule',
+			templateUrl: 'modules/users/views/workoutSchedule.client.view.html'
+		}).
 		state('signin', {
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'

@@ -1,8 +1,8 @@
-<section class="row" data-ng-controller="AuthenticationController">
-	<section class="row" data-ng-controller="SettingsController">
+<section class="row" data-ng-controller="AuthenticationController as authen">
+	<section class="row" data-ng-controller="SettingsController as settings">
 		<div class = "text-center form-group" ui-route="/profilepage" ng-class="{active: $uiRoute}">
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+		<form name="userForm" data-ng-submit="authen.signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
 				<br>
 				<h3>Completion</h3>
@@ -20,9 +20,18 @@
 					<label for="username">Age</label>
 					<input type="text" id="age" name="age" class="form-control" data-ng-model="user.age" placeholder="age">
 				</div>
-			<a href="/#!/profilepage">
+        <div class="col-xs-12 col-sm-4 text-center">
+            <button type="button" class="btn btn-success text-center" ng-click="authen.modalCreate('lg')">
+                <i class="glyphicon glyphicon-user"></i> </br>
+                New User
+            </button>
+        </div>      
+
+
+
+<!--			<a href="/#!/profilepage">
 				<button type="submit" class="btn btn-large btn-primary" >Profile Page</button>
-			</a>
+			</a>   -->
 			</fieldset>
 		</form>
 	</section>
