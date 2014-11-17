@@ -1,3 +1,35 @@
 <section data-ng-controller="AuthenticationController as authen">
-        HOODAY  THERE
+        <!-- TODO add in the three pictures for the user to select for the types of fitness activities that the user can choose from  
+                needs to replace the Fitness Type form group
+        -->
+
+    <div class="form-group">
+        <label for="fitnessType">Fitness Type</label>
+        <select name = "fitnessType" class = "form-control" data-ng-model = "user.fitnessType" placeholder = "fitnessType">
+            <option value = "" >Fitness Type</option>
+            <option value = "big"  >Get BIG! </option>
+            <option value = "toned">Get Toned!</option>
+            <option value = "thin">Get Thin!</option>
+        </select>
+    </div>
+    <!--    AFTER the fitness type is selected,  the next part will apear.  Here we will ask
+            the user what days they are available to workout M-Sun    if anycheckbox is selected then a 
+            input box will appear that will allow the user to insert the amount of time that they can workout
+
+
+            If there is a way to make the input increment by 15 minutes with every tick on it then fix it to that setting
+    -->
+    <form action="" ng-show="user.fitnessType">
+        <input type="checkbox" name="Monday" value="Monday" ng-model="monday">Monday           <span ng-show="monday"> <input type="number" ng-show="monday" min="60"> minutes of workout </span><br>
+        <input type="checkbox" name="Tuesday" value="Tuesday" ng-model="tuesday">Tuesday<br>
+        <input type="checkbox" name="Wednesday" value="Wednesday" ng-model="wednesday">Wednesday<br>
+        <input type="checkbox" name="Thursday" value="Thursday" ng-model="thursday">Thursday<br>
+        <input type="checkbox" name="Friday" value="Friday" ng-model="friday">Friday<br>
+        <input type="checkbox" name="Saturday" value="Saturday" ng-model="saturday">Saturday<br>
+        <input type="checkbox" name="Sunday" value="Sunday" ng-model="sunday">Sunday<br>
+    </form>
+
+
+
+
 </section>

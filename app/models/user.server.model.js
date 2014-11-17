@@ -90,6 +90,9 @@ var UserSchema = new Schema({
 		type: String,
 		required: 'Provider is required'
 	},
+	fitnessType:{
+		type: String
+	},
 	providerData: {},
 	additionalProvidersData: {},
 	roles: {
