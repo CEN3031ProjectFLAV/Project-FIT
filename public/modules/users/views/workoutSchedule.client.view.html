@@ -18,9 +18,13 @@
 
 
             If there is a way to make the input increment by 15 minutes with every tick on it then fix it to that setting
+
+
+            Going to make this section a np-repeat because its all the same thing
     -->
-    <form action="" ng-show="user.fitnessType">
-        <input type="checkbox" name="Monday" value="Monday" ng-model="monday">Monday           <span ng-show="monday"> <input type="number" ng-show="monday" min="60"> minutes of workout </span><br>
+    <form action="" ng-show="user.fitnessType" ng-model="daysSelected">
+        <input type="checkbox" name="Monday" value="Monday" ng-model="monday">Monday           
+            <span ng-show="monday"> <input type="number" ng-show="monday" min="60"> minutes of workout </span><br>
         <input type="checkbox" name="Tuesday" value="Tuesday" ng-model="tuesday">Tuesday<br>
         <input type="checkbox" name="Wednesday" value="Wednesday" ng-model="wednesday">Wednesday<br>
         <input type="checkbox" name="Thursday" value="Thursday" ng-model="thursday">Thursday<br>
@@ -30,6 +34,15 @@
     </form>
 
 
+    <!--    This is going to show the shcedule for the week  it can be a ng-repeat as well
+
+    -->
+    <form ng-show="monday" >
+        Hello!!
+
+    </form>
 
 
-</section>
+
+
+</section> 
