@@ -15,25 +15,27 @@ describe('Post status', function(){
 		element(by.model('credentials.firstName')).sendKeys('testFirstName' + randomInt)
 		element(by.model('credentials.lastName')).sendKeys('testLastName' + randomInt)
 		element(by.model('credentials.email')).sendKeys('testEmail' + randomInt + '@gmail.com')
-		element(by.model('credentials.gender')).sendKeys('female')
 		element.all(by.id('username')).get(1).sendKeys('user' + randomInt)
 		element.all(by.id('password')).get(1).sendKeys('1234567')
 		element(by.css('form .signUpBtn')).click()
 
+		element(by.id('newUser')).click()
+		element(by.id('CreateScheduleLater')).click()
+
 		//Click 'Profile' on the nav bar
-		element(by.css('nav .profilepage')).click()
+		//element(by.css('nav .profilepage')).click()
 
 		//Type in a new status and click 'submit query'
-		var status = 'My status ' + Math.random()		
+		var status = 'My status ' + Math.random()
 		element(by.model('listposts.post')).sendKeys(status)
 		element(by.css('form .postStatusBtn')).click()
 		var statusList = element.all(by.repeater('post in posts'))
 		expect(statusList.first().getText()).toContain(status)
 
-	})
+	});
 
 	afterEach(function(){
 		//Clear database
 		db.db.dropDatabase()
-	})
-})
+	});
+});

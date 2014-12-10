@@ -14,6 +14,9 @@ describe('Search for users', function(){
 		var lastNames = ['D', 'M', 'C', "B", 'M', 'C']
 
 		for(var i = 0; i < 6; i++){
+
+			//browser.driver.manage().window().setSize(1280, 1024)
+
 			//Click 'Sign up' on the nav bar
 			element(by.css('nav .register')).click()
 
@@ -21,11 +24,18 @@ describe('Search for users', function(){
 			element(by.model('credentials.firstName')).sendKeys(firstNames[i])
 			element(by.model('credentials.lastName')).sendKeys(lastNames[i])
 			element(by.model('credentials.email')).sendKeys('testEmail' + '@gmail.com')
-			element(by.model('credentials.gender')).sendKeys('')
 			element.all(by.id('username')).get(1).sendKeys(firstNames[i] + lastNames[i])
 			element.all(by.id('password')).get(1).sendKeys('1234567')
 			element(by.css('form .signUpBtn')).click()
-			element(by.binding('authentication.user.displayName')).click()
+
+			element(by.id('newUser')).click()
+			element(by.id('CreateScheduleLater')).click()
+
+			//browser.pause()
+
+			//Tell the browser to sleep for 0.5 second before click on nav bar for it to fully load. Or else Element not clickable error occurs
+			browser.sleep(500)
+			element(by.id('navDropDown')).click()
 			element(by.id('userSignOut')).click()
 		}
 
