@@ -21,20 +21,18 @@
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
         <label>Search</label>
         <!-- Redirect to #!/friends/user.id. What is user.id for?-->
-        <a data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item" ng-href="#!/friends/{{user._id}}">
-            {{user}}
+        <div data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item" ng-href="#!/friends/{{user._id}}">
+            <h2>{{user.friend_id.displayName}}</h2>
+            <img src="/modules/searchusers/views/avatar.jpg" class="img-responsive" alt="Responsive image">
 			<small data-ng-init="incrementIndex()" class="list-group-item-text">
-				User Created On
-				<span data-ng-bind="user.created | date:'medium'"></span>
-				<span data-ng-bind="user.firstName"></span>
             <!--
                 To display the information in the user you need to use user.friend_id.[info of user]
                 Like so
             -->
-                {{user.friend_id.lastName}}
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="user.name"></h4>
-        </a>
+            <a class="btn btn-info" ng-href="#!/friends/{{user._id}}">View {{user.friend_id.displayName}}'s profile</a>
+        </div>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
     	No Friends yet, why don't you <a href="/#!/friends/create">find one</a>?
