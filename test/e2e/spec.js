@@ -3,6 +3,7 @@ var db = mongoose.createConnection('mongodb://localhost/projectfit-test');
 
 //db.db.dropDatabase();
 
+
 describe('Post status', function(){
 
 	it('Should be able to go to sign up page', function(){
@@ -120,7 +121,35 @@ describe('Search for users', function(){
 
 	});
 
-	//TODO: test for adding friend function
+});
+
+
+describe('Add friend', function(){
+	it('Should be able to redirect to friend profile page after added friend', function(){
+		element(by.model('searchKeyword')).clear()
+
+		var userList = element.all(by.repeater('user in users'))
+		//var friendInfo = userList.get(0).getText()
+		element.all(by.id('addFriendBtn')).get(0).click()
+		expect(browser.getCurrentUrl()).toContain('friends')
+
+	});
+
+	
+	//it('Should be added to the friend list', function(){
+	//	browser.get('http://localhost:3000/#!/friends')
+	//	var friendList = element.all(by.repeater('user in users'))
+	//	var newFriend = friendList.get(0)
+	//	expect(browser.getCurrentUrl).toContain(newFriend.getText())
+	//});
+
+	/*
+	it('View friend profile redirects to friend profile page', function(){
+		browser.get('http://localhost:3000/#!/friends')
+		element.all(by.id('viewFriendProfile')).get(0).click()
+		expect(browser.getCurrentUrl()).toContain('friends')
+	})*/
+
 
 });
 

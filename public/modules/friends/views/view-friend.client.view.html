@@ -1,6 +1,6 @@
 <section data-ng-controller="FriendsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="friend.friend_id.displayName"></h1>
+		<h1 id='friendDisplayName' data-ng-bind="friend.friend_id.displayName"></h1>
 	</div>
 	<br>
 	<div class="pull-right" data-ng-show="authentication.user._id == searchuser.user._id">
