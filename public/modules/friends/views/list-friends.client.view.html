@@ -12,14 +12,25 @@
         Jacob Cukjati
 -->
 
-
+<body>
+<style>
+  body {
+    background: url(wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-bottom: 40px;
+  }
+</style>
 <section data-ng-controller="FriendsController" data-ng-init="find()">
-    <div class="page-header">
+    <div class="page-header" style="color: white">
         <h1>Your Friends</h1>
+      </div>
     {{friend}}
     <div class="list-group">
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
-        <label>Search</label>
+        <label class="label label-primary">Search</label>
         <!-- Redirect to #!/friends/user.id. What is user.id for?-->
         <div data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item" ng-href="#!/friends/{{user._id}}">
             <h2>{{user.friend_id.displayName}}</h2>
@@ -37,4 +48,5 @@
     <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
     	No Friends yet, why don't you <a href="/#!/friends/create">find one</a>?
     </div>
-</section>  
+</section>
+</body>

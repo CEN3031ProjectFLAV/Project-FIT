@@ -12,17 +12,27 @@
         Jacob Cukjati
 -->
 
-
+<body>
+<style>
+  body {
+    background: url(wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-bottom: 40px;
+  }
+</style>
 <section data-ng-controller="SearchusersController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Users</h1>
+        <h1 style="color: white">Users</h1>
     </div>
-    current user selected to be a friend
     {{friend}}
     <div class="list-group">
         <input type="text" ng-model="searchKeyword" placeholder="search for friend" />
-        <label>Search</label>
-        <div data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item">
+        <label class="label label-primary">Search</label>
+
+        <div style="margin-top: 15px" data-ng-repeat="user in users | filter:searchKeyword" data-ng-init="incrementIndex()" class="list-group-item">
             <h2>{{user.displayName}}</h2>
             <img src="/modules/searchusers/views/avatar.jpg" class="img-thumbnail" alt="Responsive image">
             <small data-ng-init="incrementIndex()" class="list-group-item-text">
@@ -38,10 +48,11 @@
 -->
 
 
-            <button id="addFriendBtn" class="btn btn-success btn-sm" ng-click="create(user)" ng-disabled="">Add User to Friend List</button>
+            <button id="addFriendBtn" class="btn btn-primary btn-sm" ng-click="create(user)" ng-disabled="">Add User to Friend List</button>
         </div>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!friends.$resolved || friends.length">
         No Friends yet, why don't you <a href="/#!/friends/create">create one</a>?
     </div>
 </section>
+</body>

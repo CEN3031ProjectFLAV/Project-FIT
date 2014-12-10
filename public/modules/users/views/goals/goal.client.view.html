@@ -1,22 +1,33 @@
+<body>
+<style>
+	body {
+		background: url(wallpaper.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		margin-bottom: 40px;
+	}
+</style>
 <section class="row" data-ng-controller="GoalController">
-	<h3 class="col-md-12 text-center">Set your Goals</h3>
-
+	<h1 class="text-center" style="color: white">Set your Goals</h1>
+	<br>
 	<!--TODO this needs to be a array of items with in the schema of mongo we will need to create a array of data structures that contain the shcema for the
 		particular goals that a user can assign to himself-->
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 								<!--TODO we will need to update the Goals here-->
 		<form name="goalForm" data-ng-submit="updateUserGoals(userForm.$valid)" class="setgoals form-horizontal" autocomplete="off">
 			<fieldset>
-				<div class="form-group">
-					<label for="WeightGoal">WeightGoal</label>
+				<div class="form-group" style="color: white">
+					<label class="label label-default" for="WeightGoal">WeightGoal</label>
 					<input type="text" id="WeightGoal" name="WeightGoal" class="form-control" data-ng-model="user.WeightGoal" placeholder="WeightGoal">
 				</div>
-				<div class="form-group">
-					<label for="Bench">Bench</label>
+				<div class="form-group" style="color: white">
+					<label class="label label-default" for="Bench">Bench</label>
 					<input type="text" id="Bench" name="Bench" class="form-control" data-ng-model="user.Bench" placeholder="Bench">
 				</div>
-				<div class="form-group">
-					<label for="running">Running Time</label>
+				<div class="form-group" style="color: white">
+					<label class="label label-default" for="running">Running Time</label>
 					<input type="text" id="running" name="running" class="form-control" data-ng-model="user.running" placeholder="Running">
 				</div>
 				<div class="text-center form-group">
@@ -32,3 +43,4 @@
 		</form>
 	</div>
 </section>
+</body>
