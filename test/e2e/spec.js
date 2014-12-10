@@ -143,12 +143,12 @@ describe('Add friend', function(){
 	//	expect(browser.getCurrentUrl).toContain(newFriend.getText())
 	//});
 
-	/*
+	
 	it('View friend profile redirects to friend profile page', function(){
-		browser.get('http://localhost:3000/#!/friends')
+		browser.get('http://localhost:3001/#!/friends')
 		element.all(by.id('viewFriendProfile')).get(0).click()
 		expect(browser.getCurrentUrl()).toContain('friends')
-	})*/
+	})
 
 
 });
