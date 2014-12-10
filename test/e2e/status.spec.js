@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://localhost/projectfit-test');
 
 describe('Post status', function(){
@@ -38,4 +38,4 @@ describe('Post status', function(){
 		//Clear database
 		db.db.dropDatabase()
 	});
-});
+});*/
